@@ -11,19 +11,19 @@ app.post('/send', async (req, res) => {
   const { name, email, message } = req.body;
 
   const transporter = nodemailer.createTransport({
-    host: 'litexpress.com.ph', // e.g. mail.example.com
+    host: 'mail.example.com', // 
     port: 465,
     secure: true,
     auth: {
-      user: 'c_lusanta.partners@litexpress.com.ph',     // your cPanel email
-      pass: 'Password123$$##'       // your cPanel email password
+      user: 'email',     // your cPanel email
+      pass: 'password'       // your cPanel email password
     }
   });
 
   try {
     await transporter.sendMail({
       from: `"${name}" <${email}>`,
-      to: 'infotech@litexpress.com.ph', // Your own email to receive the message
+      to: 'email_to', // Your own email to receive the message
       subject: `New message from ${name}`,
       text: message
     });
